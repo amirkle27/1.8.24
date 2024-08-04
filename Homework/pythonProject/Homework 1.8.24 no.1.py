@@ -71,8 +71,17 @@ print(f"The new list is: {rand_num}. \nThe new numbers in the list are: {nums}")
 print(" j ".center(30, "-"))
 print()
 
-def prime (numbers: list = []) -> list:
+def is_prime (num: int = 2) -> bool:
+    """Gets a number from the user and returns True for prime, False for non-prime"""
 
-    for i in range (len(numbers)):
-        if not numbers[i] %
+    num: int = int(input("Please enter a number"))
+    if num <= 1:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
 
+is_prime_lambda = lambda x: is_prime(x)
+
+print("Number is Prime:", is_prime_lambda(5))
